@@ -1,0 +1,11 @@
+services:
+  postgres:
+    container_name: db_postgres
+    image: postgres:alpine
+    environment:
+      POSTGRES_PASSWORD: postgres
+    healthcheck:
+      test: pg_isready -U postgres
+      interval: 3s
+    ports:
+      - "6432:5432"
